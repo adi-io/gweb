@@ -3,15 +3,13 @@
 import { NavigationMenuDemo } from "@/components/ui/navbar";
 import { type CarouselApi } from "@/components/ui/carousel";
 import { FocusCards } from "@/components/ui/focus-cards";
-import { FlipWords } from "@/components/ui/flip-words";
+import { Amenities } from "@/components/ui/amenities";
 import { Icons } from "@/components/icons";
 import { useState, useEffect } from "react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { apartment_pictures } from "@/lib";
 import Image from "next/image";
@@ -19,7 +17,6 @@ import Link from "next/link";
 
 export default function Home() {
   const [api, setApi] = useState<CarouselApi>();
-  const wordsList = ["Luxury", "Comfort", "Style", "Modernity"];
 
   useEffect(() => {
     if (!api) return;
@@ -86,8 +83,8 @@ export default function Home() {
       </div>
 
       {/* Section 1 below the hero */}
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row items-center">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 pt-8">
+        <div className="flex flex-col md:flex-row items-start">
           {/* Text Section */}
           <div className="md:w-3/5 p-8">
             <h3 className="text-4xl font-bold mb-6">Redefining Urban Living</h3>
@@ -100,6 +97,12 @@ export default function Home() {
               This fully furnished apartment is move-in ready and completely
               stocked.
             </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Near the house, you'll find restaurants, cafes, grocery stores,
+              the Albert supermarket, a pharmacy, and urban greenery. A tram
+              stop, Pod Dálnicí, is just two minutes walk away, and metro
+              station C - Kačerov is within five minutes walking distance.
+            </p>
             <a
               href="https://app.youform.com/forms/vxbxrjwz"
               className="px-6 py-3 bg-gray-800 text-white font-medium hover:bg-gray-700 transition-colors duration-300 inline-block"
@@ -109,6 +112,7 @@ export default function Home() {
           </div>
 
           {/* map Section */}
+
           <div className="md:w-2/5 p-4 flex justify-center">
             <div className="relative max-w-sm w-full rounded-lg overflow-hidden">
               <iframe
@@ -126,10 +130,17 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Amenities Section */}
+      <div className="h-auto pt-4 pb-12 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <Amenities />
+        </div>
+      </div>
+
       {/* Section 2, multiple cards */}
-      <div className="h-auto py-16 bg-white">
+      <div className="h-auto pt-0 pb-16 bg-white">
         <div className="h-1/5 p-4 text-center mb-10">
-          <h2 className="text-3xl font-bold mb-2">Explore Our Apartment</h2>
+          <h2 className="text-3xl font-bold mb-2">Explore The Apartment</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Discover the beautiful spaces and amenities our property has to
             offer.
@@ -157,7 +168,7 @@ export default function Home() {
       </div>
 
       {/* Pre-Footer */}
-      <div className="w-full bg-gray-800 text-white py-16">
+      <div className="w-full bg-gray-800 text-white py-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="get-in-touch-div flex flex-col md:flex-row justify-between items-center">
             <div className="getintouch-details flex flex-col md:flex-row gap-8 items-center justify-between w-full">
